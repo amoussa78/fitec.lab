@@ -59,7 +59,6 @@ public class LastFmListener {
 		job.setJarByClass(LastFmListener.class);
 		
 		job.setMapperClass(TokenizerMapper.class);
-//		job.setCombinerClass(PriceSumReducer.class);
 		job.setReducerClass(PriceSumReducer.class);
 		
 		job.setMapOutputKeyClass(Text.class);
