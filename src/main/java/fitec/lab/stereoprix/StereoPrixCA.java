@@ -54,11 +54,8 @@ public class StereoPrixCA {
 
 	public static void main(String[] args) throws Exception {
 		Job job = new org.apache.hadoop.mapreduce.Job();
-		job.setJarByClass(StereoPrixCA.class);
 		job.setJobName("StereoPrix CA 12 mounths");
 		
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		job.setNumReduceTasks(1);
 		job.setJarByClass(StereoPrixCA.class);
 		job.setMapperClass(TokenizerMapper.class);

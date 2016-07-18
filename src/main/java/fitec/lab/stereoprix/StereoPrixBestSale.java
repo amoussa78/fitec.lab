@@ -78,11 +78,8 @@ public class StereoPrixBestSale {
 	public static void main(String[] args) throws Exception {
 
 		Job job = new org.apache.hadoop.mapreduce.Job();
-		job.setJarByClass(StereoPrixBestSale.class);
 		job.setJobName("StereoPrix meilleur vente par categorie");
 
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		job.setJarByClass(StereoPrixBestSale.class);
 		job.setMapperClass(TokenizerMapper.class);
 		job.setCombinerClass(PriceSumReducer.class);
