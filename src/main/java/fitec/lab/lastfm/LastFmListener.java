@@ -54,17 +54,12 @@ public class LastFmListener {
 	public static void main(String[] args) throws Exception {
 		
 		Job job = new org.apache.hadoop.mapreduce.Job();
-		job.setJarByClass(LastFmListener.class);
 		job.setJobName("LastFM Listener by trackId");
-		
-		FileInputFormat.addInputPath(job, new Path(args[0]));
-		FileOutputFormat.setOutputPath(job, new Path(args[1]));
-//		job.setNumReduceTasks(1);
 		
 		job.setJarByClass(LastFmListener.class);
 		
 		job.setMapperClass(TokenizerMapper.class);
-		job.setCombinerClass(PriceSumReducer.class);
+//		job.setCombinerClass(PriceSumReducer.class);
 		job.setReducerClass(PriceSumReducer.class);
 		
 		job.setMapOutputKeyClass(Text.class);
